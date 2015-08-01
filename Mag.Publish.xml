@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="ftp://future2.somee.com/www.future2.somee.com/" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="  d:\DZHosts\LocalUser\S244\www.future2.somee.com" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FTP" replaceMatchingFiles="True" userName="S244" savePWD="True" userPWD="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApy7v7znOdEaR69mcmJ5l/gAAAAACAAAAAAAQZgAAAAEAACAAAADq2k5vwdT5kO5swzEZBr8GhvzJFaFqB47/4h/u3XSycQAAAAAOgAAAAAIAACAAAABlm6TqZxidT9rOpxGpUFyDtBXB56qwazoyjhY2xDc6XyAAAADfKL8Y0JR28royArQax5/wQaK1yzcZGzSY+hxIFW+apUAAAAD4lU5ymqhlfN8dkjwrqDkjOxIohyye1owMgKE2c99htgFkHySAAOlSCar5n1saH4ODXvyRG31B59+Q0z2Vbueo" SelectedForPublish="True">
+    <file relUrl="Admin/AddNewProducts.aspx" publishTime="06/04/2015 19:05:45" />
+    <file relUrl="page.css" publishTime="06/05/2015 14:11:49" />
+    <file relUrl="Admin/Login.aspx" publishTime="05/19/2015 11:45:19" />
+    <file relUrl="bin/Mag.dll" publishTime="06/05/2015 16:26:55" />
+    <file relUrl="Global.asax" publishTime="06/05/2015 15:59:56" />
+    <file relUrl="Web.config" publishTime="06/05/2015 11:58:58" />
+    <file relUrl="Admin/Products.aspx" publishTime="06/04/2015 18:38:30" />
+    <file relUrl="Admin/AddEditCategory.aspx" publishTime="05/19/2015 11:36:13" />
+    <file relUrl="Default.aspx" publishTime="06/05/2015 16:17:00" />
+    <file relUrl="OrderTemplate.htm" publishTime="05/20/2015 21:39:12" />
+    <file relUrl="Admin/Category.aspx" publishTime="06/04/2015 20:09:17" />
+    <file relUrl="Admin/Admin.Master" publishTime="05/29/2015 18:13:16" />
+  </publishProfile>
+</publishData>

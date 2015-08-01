@@ -1,0 +1,4 @@
+C:\Users\Oksana\documents\visual studio 2010\Projects\Mag\Mag\bin\Mag.dll
+C:\Users\Oksana\documents\visual studio 2010\Projects\Mag\Mag\bin\Mag.pdb
+C:\Users\Oksana\documents\visual studio 2010\Projects\Mag\Mag\obj\Release\Mag.dll
+C:\Users\Oksana\documents\visual studio 2010\Projects\Mag\Mag\obj\Release\Mag.pdb

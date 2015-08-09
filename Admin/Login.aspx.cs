@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Configuration;
+using System.Configuration;
 
 namespace Mag.Admin
 {
@@ -12,22 +13,23 @@ namespace Mag.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblHeader.Text = ConfigurationManager.AppSettings["NameOfShop"] + " - Admin panel";
             txtLoginId.Focus();
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             string LoginId = WebConfigurationManager.AppSettings["AdminLoginID"];
-            string Passwird = WebConfigurationManager.AppSettings["AdminPassword"];
+            string Password = WebConfigurationManager.AppSettings["AdminPassword"];
 
-            if (txtLoginId.Text == LoginId && txtPassword.Text == Passwird)
+            if (txtLoginId.Text == LoginId && txtPassword.Text == Password)
             {
-                Session["ShoppingOnlineAdmin"] = "ShoppingOnlineAdmin";
+                Session["KlondaykAdmin"] = "KlondaykAdmin";
                 Response.Redirect("~/Admin/AddNewProducts.aspx");
             }
             else
             {
-                lblAlert.Text = "Incorect Login or Password";
+                lblAlert.Text = "Неверное имя пользователя или пароль";
             }
         }
 

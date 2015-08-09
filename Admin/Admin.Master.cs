@@ -13,8 +13,8 @@ namespace Mag.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             lblLogo.Text = ConfigurationManager.AppSettings["NameOfShop"];
-            Page.Form.Attributes.Add("enctype", "multipart/form-data"); 
-            if (Session["ShoppingOnlineAdmin"] == null)
+            Page.Form.Attributes.Add("enctype", "multipart/form-data");
+            if (Session["KlondaykAdmin"] == null)
             {
                 Response.Redirect("~/Admin/Login.aspx");
             }

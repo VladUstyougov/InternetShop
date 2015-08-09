@@ -17,50 +17,51 @@
         <Columns>
             <asp:TemplateField HeaderText="Id">
                 <EditItemTemplate>
-                    <asp:Label ID="Label5" runat="server" Text='<%# Eval("ProductID") %>' Width="20"></asp:Label>
+                    <asp:Label ID="lblEdtProdId" runat="server" Text='<%# Eval("ProductID") %>' Width="20"></asp:Label>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label4" runat="server" Text='<%# Eval("ProductID") %>' Width="20"></asp:Label>
+                    <asp:Label ID="lblProdId" runat="server" Text='<%# Eval("ProductID") %>' Width="20"></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="ProductName" >
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("Name") %>' Width="200"></asp:TextBox>
+                    <asp:TextBox ID="txtEdtName" runat="server" Text='<%# Eval("Name") %>' Width="200"></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("Name") %>' Width="200"></asp:Label>
+                    <asp:Label ID="lblName" runat="server" Text='<%# Eval("Name") %>' Width="200"></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Description">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox4" runat="server" Text='<%# Eval("Description") %>' Width="250" TextMode="MultiLine" Height="100"></asp:TextBox>
+                    <asp:TextBox ID="txtEdtDescr" runat="server" Text='<%# Eval("Description") %>' Width="250" TextMode="MultiLine" Height="100"></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:TextBox ID="TextBox3" runat="server" Text ='<%# Eval("Description") %>' ReadOnly="true" Width="250" Height="100" TextMode="MultiLine"></asp:TextBox>
+                    <asp:TextBox ID="txtDescr" runat="server" Text ='<%# Eval("Description") %>' ReadOnly="true" Width="250" Height="100" TextMode="MultiLine"></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="ProductCategory" >
                 <EditItemTemplate>
-                    <asp:DropDownList ID="DropDownList1" runat="server">
+                    <asp:DropDownList ID="ddlEdtCategory" runat="server" >
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlEdtCategory" InitialValue="NA" ErrorMessage="Выберите категорию"></asp:RequiredFieldValidator>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("CategoryName") %>'></asp:Label>
+                    <asp:Label ID="lblCatName" runat="server" Text='<%# Eval("CategoryName") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Price" >
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Eval("Price") %>' Width="30"></asp:TextBox>
+                    <asp:TextBox ID="txtEdtPrice" runat="server" Text='<%# Eval("Price") %>' Width="30"></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("Price") %>' Width="30"></asp:Label>
+                    <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("Price") %>' Width="30"></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Image">
                 <EditItemTemplate>
                 <asp:TextBox ID="txtImg" runat="server" Text='<%# Eval("ImageUrl") %>' Width="30" Visible="false"></asp:TextBox>
-                    <asp:Image ID="Image2" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' Width="100" Height="100"/>
-                    <asp:FileUpload ID="FileUpload1" runat="server" Width="100" Height="20"/>
+                    <asp:Image ID="srcImg" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' Width="100" Height="100"/>
+                    <asp:FileUpload ID="FileForUpload" runat="server" Width="100" Height="20"/>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' Width="100" Height="100" />

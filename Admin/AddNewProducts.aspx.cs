@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Mag.BusinessLayer;
+using Mag.Libraries;
 using System.Data;
 
 namespace Mag.Admin
@@ -37,7 +37,7 @@ namespace Mag.Admin
 
         private void GetCategories()
         {
-            ShoppingCart k = new ShoppingCart();
+            MainLibrary k = new MainLibrary();
             DataTable dt = k.GetCategories();
             if (dt.Rows.Count > 0)
             {
@@ -61,7 +61,7 @@ namespace Mag.Admin
             {
                 SaveProductPoto();
 
-                ShoppingCart k = new ShoppingCart()
+                MainLibrary k = new MainLibrary()
                 {
                     ProductName = txtProductName.Text,
                     ProductImage = "~/ProductImages/" + uploadProductPhoto.FileName,

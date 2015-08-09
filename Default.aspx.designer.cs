@@ -247,13 +247,13 @@ namespace Mag {
         protected global::System.Web.UI.WebControls.Button btnnext;
         
         /// <summary>
-        /// pnlCheckOut control.
+        /// pnlLeaveMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlCheckOut;
+        protected global::System.Web.UI.WebControls.Panel pnlLeaveMessage;
         
         /// <summary>
         /// btnClose control.

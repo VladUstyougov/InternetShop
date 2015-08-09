@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-using Mag.BusinessLayer;
+using Mag.Libraries;
 using System.IO;
 using System.Web.Configuration;
 using System.Data.SqlClient;
@@ -20,13 +20,18 @@ namespace Mag
         int pos;
         int last;
         PagedDataSource adsource;
+        private static string pageKey = "p";
+        private static string modeKey = "m";
+        private static string deltaKey = "d";
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            lbl_Count.Text = Application["Visitors"].ToString() + "/" + Application["myCounter"].ToString();
+            lbl_Count.Text = Application["UsersOnline"].ToString() + "/" + Application["TotalCounter"].ToString();
             lblLogo.Text = lblFooter.Text = ConfigurationManager.AppSettings["NameOfShop"];
             lblDesc.Text = ConfigurationManager.AppSettings["Description"];
             lblTelefon1.Text = ConfigurationManager.AppSettings["Telefon"];
             pageall.Visible = false;
+
             if (!IsPostBack)
             {
                 this.ViewState["vs"] = 0;
@@ -39,11 +44,10 @@ namespace Mag
             last = (int)this.ViewState["vf"];
             btnFirstPage.Text = Convert.ToString(pos + 1);
             btnLastPage.Text = Convert.ToString(last + 1);
-
         }
+
         protected void Page_Loaded(object sender, EventArgs e)
         {
-            //ScriptManager scriptmanager1 = Page.FindControl("ScriptManager1") as ScriptManager;
             ScriptManager1.AddHistoryPoint(pageKey, "0");
         }
 
@@ -54,26 +58,26 @@ namespace Mag
             pnlCategories.Visible = true;
             pnlProducts.Visible = true;
             pnlDetails.Visible = false;
-            pnlCheckOut.Visible = false;
+            pnlLeaveMessage.Visible = false;
 
             GetProducts(0);
         }
 
-        protected void btnShoppingCart_Click(object sender, EventArgs e)
-        {
-            lblCategoryName.Text = "";
-            lbtProducts.Text = "";
-            pnlCheckOut.Visible = true;
-            pnlDetails.Visible = false;
-            pnlCategories.Visible = false;
-            pnlProducts.Visible = false;
-        }
+        //protected void btnBag_Click(object sender, EventArgs e)
+        //{
+        //    lblCategoryName.Text = "";
+        //    lbtProducts.Text = "";
+        //    pnlLeaveMessage.Visible = true;
+        //    pnlDetails.Visible = false;
+        //    pnlCategories.Visible = false;
+        //    pnlProducts.Visible = false;
+        //}
 
 
         private DataTable GetData(string query)
         {
             DataTable dt = new DataTable();
-            string Conn = WebConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString;
+            string Conn = WebConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(Conn);
             con.Open();
             SqlDataAdapter da = new SqlDataAdapter(query, con);
@@ -91,14 +95,12 @@ namespace Mag
             this.ViewState["vs"] = 0;
             pos = 0;
             GetProducts(CategoryID);
-            // HighlightCartProducts();
-            //ScriptManager scriptmanager1 = Page.FindControl("ScriptManager1") as ScriptManager;
             ScriptManager1.AddHistoryPoint(modeKey, Convert.ToString(CategoryID));
         }
 
         private void GetCategory()
         {
-            ShoppingCart k = new ShoppingCart();
+            MainLibrary k = new MainLibrary();
             dlCategories.DataSource = null;
             dlCategories.DataSource = k.GetCategories();
             dlCategories.DataBind();
@@ -107,7 +109,7 @@ namespace Mag
         private void GetProducts(int CategoryIDs)
         {
             pageall.Visible = true;
-            ShoppingCart k = new ShoppingCart()
+            MainLibrary k = new MainLibrary()
             {
                 CategoryID = CategoryIDs
             };
@@ -115,6 +117,7 @@ namespace Mag
             dlProducts.DataSource = null;
             adsource = new PagedDataSource();
             adsource.DataSource = (k.GetAllProducts()).DefaultView;
+
             if (CategoryIDs != 0 && pnlProducts.Visible == true)
             {
                 DataTable dtable = k.GetCategory();
@@ -124,12 +127,10 @@ namespace Mag
                 }
             }
             else lblCategoryName.Text = "";
+
             adsource.AllowPaging = true;
             adsource.PageSize = 9;
             adsource.CurrentPageIndex = pos;
-            //btnfirst.Enabled = !adsource.IsFirstPage;
-
-            //btnlast.Enabled = !adsource.IsLastPage;
             last = adsource.PageCount - 1;
             this.ViewState["vf"] = last;
             btnprevious.Visible = btnnext.Visible = btnLastPage.Visible = btnFirstPage.Visible = true;
@@ -177,13 +178,7 @@ namespace Mag
             dlProducts.DataSource = adsource;
             dlProducts.DataBind();
         }
-
-        //protected void btnfirst_Click(object sender, EventArgs e)
-        //{
-        //    pos = 0;
-        //    GetProducts(0);
-        //}
-
+        
         protected void btnprevious_Click(object sender, EventArgs e)
         {
             pos = (int)this.ViewState["vs"];
@@ -204,12 +199,6 @@ namespace Mag
             GetProducts(0);
         }
 
-        //protected void btnlast_Click(object sender, EventArgs e)
-        //{
-        //    pos = adsource.PageCount - 1;
-        //    GetProducts(0);
-        //}
-
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
             ScriptManager1.AddHistoryPoint(pageKey, "0");
@@ -226,10 +215,8 @@ namespace Mag
         private void NewMessage(int ProductID)
         {
             hfProductID.Value = ProductID.ToString();
-            pnlCheckOut.Visible = true;
+            pnlLeaveMessage.Visible = true;
             pnlDetails.Visible = false;
-            //pnlCategories.Visible = false;
-            //pnlProducts.Visible = false;
         }
 
 
@@ -240,7 +227,8 @@ namespace Mag
             pnlDetails.Visible = true;
             int ProductID = (int)Convert.ToInt32(((((ImageButton)sender).CommandArgument)).ToString());
             ScriptManager1.AddHistoryPoint(deltaKey, Convert.ToString(ProductID));
-            ShoppingCart k = new ShoppingCart()
+
+            MainLibrary k = new MainLibrary()
             {
                 ProductID = ProductID
             };
@@ -250,53 +238,29 @@ namespace Mag
             lblProductDescription.Text = Convert.ToString(dtResult.Rows[0]["Description"]);
             lblPrice.Text = Convert.ToString(dtResult.Rows[0]["Price"]);
             lblTelefon2.Text = ConfigurationManager.AppSettings["Telefon"];
-            //HiddenField1.Value = ProductID.ToString();
             btnWriteMessage.CommandArgument = ProductID.ToString();
             Image2.ImageUrl = Convert.ToString(dtResult.Rows[0]["ImageUrl"]);
-            //        ProductID = Convert.ToInt32(dt.Rows[i]["ProductID"]),
-            //        TotalProducts = Convert.ToInt32(dt.Rows[i]["ProductQuantity"])
-            //    };
-
         }
 
         protected void btnPlaceOrder_Click(object sender, EventArgs e)
         {
-            //string productids = string.Empty;
             int ProductID = Convert.ToInt32(hfProductID.Value);
-            //DataTable dt;
             if (txtCustomerName.Text != null && txtCustomerEmailID.Text != null)
             {
-                //dt = (DataTable)Session["MyCart"];
-
-                ShoppingCart k = new ShoppingCart()
+                MainLibrary k = new MainLibrary()
                 {
                     CustomerName = txtCustomerName.Text,
                     CustomerEmailID = txtCustomerEmailID.Text,
                     CustomerPhoneNo = txtCustomerPhoneNo.Text,
                     CustomerMessage = txtCustomerMessage.Text,
                     ProductID = ProductID
-                    //TotalProducts = Convert.ToInt32(txtTotalProducts.Text),
-                    //TotalPrice = Convert.ToInt32(txtTotalPrice.Text),
-                    //ProductList = productids
-                    //PaymentMethod = rblPaymentMethod.SelectedItem.Text
                 };
 
                 DataTable dtResult = k.SaveCustomerDetails();
 
-                //for (int i = 0; i < dt.Rows.Count; i++)
-                //{
-                //    ShoppingCart SaveProducts = new ShoppingCart()
-                //    {
-                //        CustomerID = Convert.ToInt32(dtResult.Rows[0][0]),
-                //        ProductID = Convert.ToInt32(dt.Rows[i]["ProductID"]),
-                //        TotalProducts = Convert.ToInt32(dt.Rows[i]["ProductQuantity"])
-                //    };
-                //    SaveProducts.SaveCustomerProducts();
-                //}
-
                 Session.Clear();
 
-                pnlCheckOut.Visible = false;
+                pnlLeaveMessage.Visible = false;
                 pnlCategories.Visible = false;
                 pnlProducts.Visible = false;
 
@@ -309,17 +273,14 @@ namespace Mag
 
                 pnlProducts.Visible = true;
                 pnlCategories.Visible = true;
-                pnlCheckOut.Visible = false;
+                pnlLeaveMessage.Visible = false;
                 pnlDetails.Visible = false;
-
-                // Response.Redirect("~/Default.aspx");
             }
         }
 
         private void SendOrderPlacedAlert(string CustomerName, string CustomerEmailID, int ProductId)
         {
             string body = this.PopulateOrderEmailBody(CustomerName, ProductId);
-
             EmailEngine.SendEmail(ConfigurationManager.AppSettings["UserName"], "Письмо из магазина от " + txtCustomerName.Text, body);
         }
 
@@ -348,8 +309,7 @@ namespace Mag
             pnlProducts.Visible = true;
             pnlCategories.Visible = true;
             pnlDetails.Visible = false;
-            pnlCheckOut.Visible = false;
-
+            pnlLeaveMessage.Visible = false;
         }
 
         protected void lblProductDescription_PreRender(object sender, EventArgs e)
@@ -362,7 +322,6 @@ namespace Mag
         {
             pos = 0;
             this.ViewState["vs"] = pos;
-            //ScriptManager scriptmanager1 = Page.FindControl("ScriptManager1") as ScriptManager;
             ScriptManager1.AddHistoryPoint(pageKey, Convert.ToString(pos));
             GetProducts(0);
         }
@@ -371,32 +330,29 @@ namespace Mag
         {
             pos = (int)this.ViewState["vf"];
             this.ViewState["vs"] = pos;
-            //ScriptManager scriptmanager1 = Page.FindControl("ScriptManager1") as ScriptManager;
             ScriptManager1.AddHistoryPoint(pageKey, Convert.ToString(pos));
             GetProducts(0);
         }
 
-        private static string pageKey = "p";
-        private static string modeKey = "m";
-        private static string deltaKey = "d";
+        
 
         protected void ScriptManager1_Navigate(object sender, HistoryEventArgs e)
         {
+            string state = String.Empty;
             if (e.State.Count <= 0)
             {
                 this.ViewState["vs"] = 0;
                 pnlCategories.Visible = true;
                 pnlProducts.Visible = true;
                 pnlDetails.Visible = false;
-                pnlCheckOut.Visible = false;
+                pnlLeaveMessage.Visible = false;
                 GetCategory();
                 GetProducts(0);
                 return;
             }
 
             string key = e.State.AllKeys[0];
-            string state = String.Empty;
-
+            
             if (String.Equals(key, pageKey))
             {
                 state = e.State[key];
@@ -429,7 +385,5 @@ namespace Mag
             pnlDetails.Visible = true;
             NewMessage(0);
         }
-
-
     }
 }

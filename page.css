@@ -1,10 +1,10 @@
 ﻿ .buttons
 {
 	
-	-webkit-box-shadow:-1px 2px 2px rgba(0,0,0,0.28);
-	-moz-box-shadow:-1px 2px 2px rgba(0,0,0,0.28);
-	-o-box-shadow:-1px 2px 2px rgba(0,0,0,0.28);
-	box-shadow: -1px 2px 2px rgba(0,0,0,0.28);
+-webkit-box-shadow:-1px 2px 2px rgba(0,0,0,0.28);
+-moz-box-shadow:-1px 2px 2px rgba(0,0,0,0.28);
+-o-box-shadow:-1px 2px 2px rgba(0,0,0,0.28);
+box-shadow: -1px 2px 2px rgba(0,0,0,0.28);
 	
 -webkit-border-radius: 2px 2px 2px 2px;	
 -moz-border-radius: 2px 2px 2px 2px;
@@ -14,7 +14,6 @@ border-radius: 2px 2px 2px 2px;
 
 .btn
 {
-	/*background:transparent -moz-linear-gradient(center top,#7A7AFF,#444) repeat scroll 0 0;*/
 background: #7a7aff;
 background:transparent -moz-linear-gradient(top, #7a7aff 0%, #444444 100%);
 background:transparent -webkit-gradient(left top, left bottom, color-stop(0%, #7a7aff), color-stop(100%, #444444));
@@ -23,7 +22,6 @@ background:transparent -o-linear-gradient(top, #7a7aff 0%, #444444 100%);
 background:transparent -ms-linear-gradient(top, #7a7aff 0%, #444444 100%);
 background:transparent linear-gradient(to bottom, #7a7aff 0%, #444444 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7a7aff', endColorstr='#444444', GradientType=0 );
-
 }
 
 .title
@@ -52,18 +50,18 @@ h1
 
 .phon1
 {
-	font-size:25px;
-	font-weight:700;
-	padding:7px;
-	width:300px;
-	margin:7px;
+font-size:25px;
+font-weight:700;
+padding:7px;
+width:300px;
+margin:7px;
 -webkit-border-radius: 2px 2px 2px 2px;	
 -moz-border-radius: 2px 2px 2px 2px;
 -o-border-radius: 2px 2px 2px 2px;
 border-radius: 2px 2px 2px 2px;
-	background-color:rgba(255,255,255,0.85);
-	border-color:red;;
-	display:inline-block;
+background-color:rgba(255,255,255,0.85);
+border-color:red;;
+display:inline-block;
 }
 
 * html .categoriesstyle
@@ -257,10 +255,7 @@ a.activ
 	color:#fff!important;
 	text-shadow:none!important;
 }
-/*#pageall
-{
-    visibility:hidden;
-}*/
+
 #lblLogo
 {
     text-decoration:none;

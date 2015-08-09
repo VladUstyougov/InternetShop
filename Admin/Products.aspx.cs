@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Mag.BusinessLayer;
+using Mag.Libraries;
 using System.Data;
 using System.Text;
 
@@ -14,7 +14,6 @@ namespace Mag.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Page.Form.Attributes.Add("enctype", "multipart/form-data");
             if (!IsPostBack)
             {
                 GetProducts(0);
@@ -22,7 +21,7 @@ namespace Mag.Admin
         }
         private void GetProducts(int CategoryID)
         {
-            ShoppingCart k = new ShoppingCart()
+            MainLibrary k = new MainLibrary()
             {
                 CategoryID = CategoryID
             };
@@ -34,8 +33,8 @@ namespace Mag.Admin
 
         protected void gvAvailableProducts_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int ProductID = Int32.Parse(((Label)gvAvailableProducts.Rows[e.RowIndex].FindControl("Label4")).Text);
-            ShoppingCart k = new ShoppingCart()
+            int ProductID = Int32.Parse(((Label)gvAvailableProducts.Rows[e.RowIndex].FindControl("lblProdId")).Text);
+            MainLibrary k = new MainLibrary()
             {
                 ProductID = ProductID
             };
@@ -57,13 +56,13 @@ namespace Mag.Admin
 
         protected void gvAvailableProducts_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            FileUpload fileupload1 = (FileUpload)gvAvailableProducts.Rows[e.RowIndex].FindControl("FileUpload1");
-            int ProductID = Int32.Parse(((Label)gvAvailableProducts.Rows[e.RowIndex].FindControl("Label5")).Text);
-            string Name = ((TextBox)gvAvailableProducts.Rows[e.RowIndex].FindControl("TextBox1")).Text;
+            FileUpload fileupload1 = (FileUpload)gvAvailableProducts.Rows[e.RowIndex].FindControl("FileForUpload");
+            int ProductID = Int32.Parse(((Label)gvAvailableProducts.Rows[e.RowIndex].FindControl("lblEdtProdId")).Text);
+            string Name = ((TextBox)gvAvailableProducts.Rows[e.RowIndex].FindControl("txtEdtName")).Text;
 
-            string Description= ((TextBox)gvAvailableProducts.Rows[e.RowIndex].FindControl("TextBox4")).Text;
-            int CategoryID = Int32.Parse(((DropDownList)gvAvailableProducts.Rows[e.RowIndex].FindControl("DropDownList1")).SelectedValue.ToString());
-            int ProductPrice = Int32.Parse(((TextBox)gvAvailableProducts.Rows[e.RowIndex].FindControl("TextBox2")).Text);
+            string Description = ((TextBox)gvAvailableProducts.Rows[e.RowIndex].FindControl("txtEdtDescr")).Text;
+            int CategoryID = Int32.Parse(((DropDownList)gvAvailableProducts.Rows[e.RowIndex].FindControl("ddlEdtCategory")).SelectedValue.ToString());
+            int ProductPrice = Int32.Parse(((TextBox)gvAvailableProducts.Rows[e.RowIndex].FindControl("txtEdtPrice")).Text);
             string ProductImage = ((TextBox)gvAvailableProducts.Rows[e.RowIndex].FindControl("txtImg")).Text;
 
             if (fileupload1.PostedFile != null && fileupload1.HasFile)
@@ -72,7 +71,7 @@ namespace Mag.Admin
                 ProductImage = "~/ProductImages/" + fileupload1.FileName;
             }
 
-            ShoppingCart k = new ShoppingCart()
+            MainLibrary k = new MainLibrary()
             {
                 ProductID = ProductID,
                 ProductName = Name,
@@ -128,8 +127,8 @@ namespace Mag.Admin
                     scriptmanager1.RegisterPostBackControl(cpl);
 
 
-                    ShoppingCart k = new ShoppingCart();
-                    DropDownList dp = (DropDownList)e.Row.FindControl("DropDownList1");
+                    MainLibrary k = new MainLibrary();
+                    DropDownList dp = (DropDownList)e.Row.FindControl("ddlEdtCategory");
                     DataTable dt = k.GetCategories();
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
@@ -138,6 +137,7 @@ namespace Mag.Admin
                         lt.Text = dt.Rows[i][1].ToString();
                         dp.Items.Add(lt);
                     }
+                    dp.Items.Insert(0, new ListItem("Select", "NA"));
                 }
             }
         }

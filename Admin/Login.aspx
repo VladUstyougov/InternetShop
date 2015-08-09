@@ -11,14 +11,14 @@
         <table align="center" class="style1" style="border: 1px ridge #999999; width: 450px;">
             <tr>
                 <td align="center" colspan="2">
-                    <asp:Label ID="Label1" runat="server" Font-Names="Ahraroni" ForeColor="#0033CC" Text="ShoppingOnline - Admin Panel"
+                    <asp:Label ID="lblHeader" runat="server" Font-Names="Ahraroni" ForeColor="#0033CC" Text=""
                         Style="font-weight: 700"></asp:Label>
                     <hr />
                 </td>
             </tr>
             <tr>
                 <td align="center" style="width: 50%">
-                    Login ID:
+                    Логин:
                 </td>
                 <td style="width: 50%">
                     <asp:TextBox ID="txtLoginId" runat="server"></asp:TextBox>
@@ -26,7 +26,7 @@
             </tr>
             <tr>
                 <td align="center" style="width: 50%">
-                    Password:
+                    Пароль:
                 </td>
                 <td style="width: 50%">
                     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
@@ -37,14 +37,12 @@
                     &nbsp;
                 </td>
                 <td style="width: 50%">
-                    <asp:Button ID="btnLogin" runat="server" Text="Login" 
+                    <asp:Button ID="btnLogin" runat="server" Text="Войти" 
                         onclick="btnLogin_Click" />
                 </td>
             </tr>
             <tr>
-                
                 <td align="center" colspan="2">
-                <hr />
                     <asp:Label ID="lblAlert" runat="server" Font-Names="Ahraroni" ForeColor="Red"></asp:Label>
                 </td>
             </tr>

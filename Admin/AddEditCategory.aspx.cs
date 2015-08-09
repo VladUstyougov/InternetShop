@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Mag.BusinessLayer;
+using Mag.Libraries;
 
 namespace Mag.Admin
 {
@@ -19,7 +19,7 @@ namespace Mag.Admin
         {
             if (!string.IsNullOrEmpty((txtCategoryName.Text).Trim()))
             {
-                ShoppingCart k = new ShoppingCart
+                MainLibrary k = new MainLibrary
                 {
                     CategoryName = txtCategoryName.Text
                 };

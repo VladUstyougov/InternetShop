@@ -3,17 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <meta content="text/html;"  charset="utf-8" http-equiv="content-type"/>
-    <title></title>
-    <link href="page.css" media="screen" rel="stylesheet" type="text/css"/>
-
-    <!--[if gte IE 9]
-<style type="text/css">
-.btn {
-filter: none;
-}
-</style>
-<![endif]-->
+    <meta content="text/html;" charset="utf-8" http-equiv="content-type" />
+    <title>Internet Shop</title>
+    <link href="page.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -29,8 +21,6 @@ filter: none;
                             height: 280px;">
                             <tr>
                                 <td class="style8" align="center" rowspan="2">
-                                    <%--<asp:Image ID="Image1" runat="server" Height="100" ImageUrl="~/Images/header1.jpg"
-                                        Width="100" />--%>
                                     &nbsp;
                                 </td>
                                 <td class="style6" rowspan="2">
@@ -63,19 +53,6 @@ filter: none;
                 </tr>
                 <tr>
                     <td>
-                        <%--
-                        <table align="center" class="style1" style="border: thin ridge #9900FF;">
-                            <tr>
-                                <td class="productstyle">
-                                    &nbsp;
-                                    <asp:Label ID="lblCategoryName" runat="server" Font-Size="15pt" ForeColor="#6600CC"></asp:Label>
-                                </td>
-                                <td class="categoriesstyle" style="border-left-style: ridge; border-width: thin; border-color: #9900FF">
-                                    &nbsp;
-                                    <asp:Label ID="lblProducts" runat="server" Text="Products" Font-Size="15pt" ForeColor="#6600CC"></asp:Label>
-                                </td>
-                            </tr>
-                        </table>--%>
                     </td>
                 </tr>
                 <tr>
@@ -157,7 +134,6 @@ filter: none;
                                             <div style="min-height: 10px; clear: both">
                                             </div>
                                         </div>
-                                        
                                     </asp:Panel>
                                     <asp:Panel ID="pnlDetails" runat="server" ScrollBars="Auto" BorderColor="Black" BorderStyle="Inset"
                                         BorderWidth="0" Visible="false" Style="overflow: hidden; min-height: 600px;">
@@ -171,14 +147,12 @@ filter: none;
                                         <div style="left: 350px; border-color: Red; width: 364px; vertical-align: top; height: 204px;
                                             margin-left: 10px; display: inline-block;">
                                             В наличии
-                                            <div style="background-color: #FFFFFF; border: 1px solid #EEEEEE; 
-                                                -webkit-border-radius: 3px 3px 3px 3px;
-                                                -moz-border-radius: 3px 3px 3px 3px;
-                                                -o-border-radius: 3px 3px 3px 3px;
-                                                border-radius: 3px 3px 3px 3px;
-                                                width: 300px; -webkit-box-shadow: 0px 4px 3px -3px rgba(0, 0, 0, 0.28);-moz-box-shadow: 0px 4px 3px -3px rgba(0, 0, 0, 0.28);-o-box-shadow: 0px 4px 3px -3px rgba(0, 0, 0, 0.28);box-shadow: 0px 4px 3px -3px rgba(0, 0, 0, 0.28); color: #000;
-                                                font-family: Arial,sans-serif; font-size: 13px; line-height: 14.6333px; float: left;
-                                                margin: 10px 10px 10px 0px; padding: 10px 15px 15px 0px; border-color: Red">
+                                            <div style="background-color: #FFFFFF; border: 1px solid #EEEEEE; -webkit-border-radius: 3px 3px 3px 3px;
+                                                -moz-border-radius: 3px 3px 3px 3px; -o-border-radius: 3px 3px 3px 3px; border-radius: 3px 3px 3px 3px;
+                                                width: 300px; -webkit-box-shadow: 0px 4px 3px -3px rgba(0, 0, 0, 0.28); -moz-box-shadow: 0px 4px 3px -3px rgba(0, 0, 0, 0.28);
+                                                -o-box-shadow: 0px 4px 3px -3px rgba(0, 0, 0, 0.28); box-shadow: 0px 4px 3px -3px rgba(0, 0, 0, 0.28);
+                                                color: #000; font-family: Arial,sans-serif; font-size: 13px; line-height: 14.6333px;
+                                                float: left; margin: 10px 10px 10px 0px; padding: 10px 15px 15px 0px; border-color: Red">
                                                 <div style="border-color: #9DB9DA; border-color: Red;">
                                                     <div style="border-color: Red; display: inline-block; margin-bottom: -3px; vertical-align: middle;
                                                         border-color: #9DB9DA;">
@@ -195,28 +169,16 @@ filter: none;
                                                 <asp:Button ID="btnWriteMessage" runat="server" Text="Написать" CommandArgument='<%# Eval("ProductID") %>'
                                                     Width="120" BorderColor="Black" BorderStyle="Inset" BorderWidth="1px" CausesValidation="false"
                                                     Style="display: inline-block; width: 195px; height: 37px; border-color: #FFF;
-                                                    border-radius: 3px 3px 3px 3px;
--moz-border-radius: 3px 3px 3px 3px;
--webkit-border-radius: 3px 3px 3px 3px;
-                                                    display: inline-block; 
-                                                    position: relative; 
-                                                    color: #FFF; 
-                                                    background: transparent -webkit-linear-gradient(center top , #7A7A7A, #444) repeat scroll 0% 0%;
+                                                    border-radius: 3px 3px 3px 3px; -moz-border-radius: 3px 3px 3px 3px; -webkit-border-radius: 3px 3px 3px 3px;
+                                                    display: inline-block; position: relative; color: #FFF; background: transparent -webkit-linear-gradient(center top , #7A7A7A, #444) repeat scroll 0% 0%;
                                                     background: transparent -webkit-gradient(center top , #7A7A7A, #444) repeat scroll 0% 0%;
                                                     background: transparent -ms-linear-gradient(center top , #7A7A7A, #444) repeat scroll 0% 0%;
-                                                    background:transparent -moz-linear-gradient(center top , #517BA5, #094581)repeat scroll 0% 0%;
+                                                    background: transparent -moz-linear-gradient(center top , #517BA5, #094581)repeat scroll 0% 0%;
                                                     background: transparent -o-linear-gradient(center top , #7A7A7A, #444) repeat scroll 0% 0%;
-                                                    
-                                                    
-                                                    padding: 0px;
-                                                    border-style: solid; 
-                                                    border-width: 1px; 
-                                                    font-weight: normal; 
-                                                    -webkit-box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.28);
-                                                    -moz-box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.28);
-                                                    -o-box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.28);
-                                                    box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.28);"
-                                                    BackColor="#9999FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" OnClick="btnWriteMessage_Click" />
+                                                    padding: 0px; border-style: solid; border-width: 1px; font-weight: normal; -webkit-box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.28);
+                                                    -moz-box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.28); -o-box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.28);
+                                                    box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.28);" BackColor="#9999FF" Font-Bold="True"
+                                                    Font-Size="Medium" ForeColor="White" OnClick="btnWriteMessage_Click" />
                                             </div>
                                             <div class="phone">
                                             </div>
@@ -229,30 +191,27 @@ filter: none;
                                         </div>
                                         </div>
                                     </asp:Panel>
-                                    
                                 </td>
                             </tr>
-                            <tr><td>
-                            
-                            </td><td>
-                            <div id="pageall" runat="server" style="text-align:center;">
-                                            <%--<asp:Button ID="btnfirst" runat="server" Font-Bold="true" Text="<<" Height="31px"
-                                                        Width="43px" OnClick="btnfirst_Click" />--%>
-                                            <asp:Button ID="btnprevious" runat="server" Font-Bold="true" Text="<" OnClick="btnprevious_Click"
-                                                Height="30px" Width="30px" BorderWidth="0" BorderColor="Transparent" BackColor="Transparent" />
-                                            <asp:Button ID="btnFirstPage" runat="server" Text="1" BorderWidth="0" BorderColor="Transparent"
-                                                BackColor="Transparent" OnClick="btnFirstPage_Click" />...
-                                            <asp:Button ID="btnLastPage" runat="server" Text="" BorderWidth="0" BorderColor="Transparent"
-                                                BackColor="Transparent" OnClick="btnLastPage_Click" />
-                                            <asp:Button ID="btnnext" runat="server" Font-Bold="true" Text=">" OnClick="btnnext_Click"
-                                                Height="30px" Width="30px" BorderWidth="0" BorderColor="Transparent" BackColor="Transparent" />
-                                            <%--<asp:Button ID="btnlast" runat="server" Font-Bold="true" Text=">>" Height="31px"
-                                                        Width="43px" OnClick="btnlast_Click" />--%>
-                                        </div>
-                            </td></tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    <div id="pageall" runat="server" style="text-align: center;">
+                                        <asp:Button ID="btnprevious" runat="server" Font-Bold="true" Text="<" OnClick="btnprevious_Click"
+                                            Height="30px" Width="30px" BorderWidth="0" BorderColor="Transparent" BackColor="Transparent" />
+                                        <asp:Button ID="btnFirstPage" runat="server" Text="1" BorderWidth="0" BorderColor="Transparent"
+                                            BackColor="Transparent" OnClick="btnFirstPage_Click" />...
+                                        <asp:Button ID="btnLastPage" runat="server" Text="" BorderWidth="0" BorderColor="Transparent"
+                                            BackColor="Transparent" OnClick="btnLastPage_Click" />
+                                        <asp:Button ID="btnnext" runat="server" Font-Bold="true" Text=">" OnClick="btnnext_Click"
+                                            Height="30px" Width="30px" BorderWidth="0" BorderColor="Transparent" BackColor="Transparent" />
+                                    </div>
+                                </td>
+                            </tr>
                             <tr>
                                 <td colspan="2">
-                                    <asp:Panel ID="pnlCheckOut" runat="server" Width="100%" ScrollBars="Auto" BorderColor="Black"
+                                    <asp:Panel ID="pnlLeaveMessage" runat="server" Width="100%" ScrollBars="Auto" BorderColor="Black"
                                         BorderStyle="Inset" BorderWidth="0" Visible="false" BackColor="White">
                                         <div class="writeme">
                                             <div class="popup">
@@ -339,10 +298,16 @@ filter: none;
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2" align="center" style="background-color:Black; height:40px;color:White;text-decoration:none;">
-                                    Нужен 
-                                    <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click" ForeColor="White" style="text-decoration:none;"><asp:Label ID="lblFooter" runat="server" Text="Label" ForeColor="White" ></asp:Label>?
-                                    </asp:LinkButton> | <a href="Admin/Login.aspx" target="_blank" style="text-decoration:none;color:Gray;">AdminPanel</a><div style="float:right;margin-right:10px;"><asp:Label ID="lbl_Count" runat="server" ForeColor="Gray" /></div>
+                                <td colspan="2" align="center" style="background-color: Black; height: 40px; color: White;
+                                    text-decoration: none;">
+                                    Нужен
+                                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" ForeColor="White"
+                                        Style="text-decoration: none;">
+                                        <asp:Label ID="lblFooter" runat="server" Text="Label" ForeColor="White"></asp:Label>?
+                                    </asp:LinkButton>
+                                    | <a href="Admin/Login.aspx" target="_blank" style="text-decoration: none; color: Gray;">
+                                        AdminPanel</a><div style="float: right; margin-right: 10px;">
+                                            <asp:Label ID="lbl_Count" runat="server" ForeColor="Gray" /></div>
                                 </td>
                             </tr>
                         </table>

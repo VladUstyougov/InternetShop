@@ -7,4 +7,3 @@ E:\git\InternetShop\bin\Mag.dll
 E:\git\InternetShop\bin\Mag.pdb
 E:\git\InternetShop\obj\Debug\Mag.dll
 E:\git\InternetShop\obj\Debug\Mag.pdb
-E:\git\InternetShop\obj\Debug\Mag.csprojResolveAssemblyReference.cache

@@ -94,7 +94,7 @@
     </Content>
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="OrderTemplate.htm" />
+    <Content Include="MailTemplate.htm" />
     <Content Include="page.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -149,8 +149,8 @@
     <Compile Include="Admin\Products.aspx.designer.cs">
       <DependentUpon>Products.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BussinessLayer\ShoppingCart.cs" />
-    <Compile Include="DataLayer\DataAccess.cs" />
+    <Compile Include="Libraries\MainLibrary.cs" />
+    <Compile Include="Libraries\Connector.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

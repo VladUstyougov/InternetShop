@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Mag.BusinessLayer;
+using Mag.Libraries;
 using System.Data;
 
 namespace Mag.Admin
@@ -20,7 +20,7 @@ namespace Mag.Admin
         }
         private void GetCategories()
         {
-            ShoppingCart k = new ShoppingCart();
+            MainLibrary k = new MainLibrary();
             DataTable dt = k.GetCategories();
             if (dt.Rows.Count > 0)
             {
@@ -31,8 +31,8 @@ namespace Mag.Admin
 
         protected void gvAvailableCategories_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int CategoryID = Int32.Parse(((Label)gvAvailableCategories.Rows[e.RowIndex].FindControl("Label1")).Text);
-            ShoppingCart k = new ShoppingCart()
+            int CategoryID = Int32.Parse(((Label)gvAvailableCategories.Rows[e.RowIndex].FindControl("lblCatId")).Text);
+            MainLibrary k = new MainLibrary()
             {
                 CategoryID = CategoryID
             };
@@ -54,9 +54,9 @@ namespace Mag.Admin
 
         protected void gvAvailableCategories_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            int CategoryID = Convert.ToInt32(((Label)gvAvailableCategories.Rows[e.RowIndex].FindControl("Label3")).Text);
-            string CategoryName = ((TextBox)gvAvailableCategories.Rows[e.RowIndex].FindControl("TextBox1")).Text;
-            ShoppingCart k = new ShoppingCart()
+            int CategoryID = Convert.ToInt32(((Label)gvAvailableCategories.Rows[e.RowIndex].FindControl("lblEdtCatId")).Text);
+            string CategoryName = ((TextBox)gvAvailableCategories.Rows[e.RowIndex].FindControl("txtEdtCatName")).Text;
+            MainLibrary k = new MainLibrary()
             {
                 CategoryID = CategoryID,
                 CategoryName = CategoryName

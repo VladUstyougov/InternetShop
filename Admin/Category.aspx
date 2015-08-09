@@ -21,18 +21,18 @@
         <Columns>
             <asp:TemplateField HeaderText="Id">
                 <EditItemTemplate>
-                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("CategoryID") %>' Width="200"></asp:Label>
+                    <asp:Label ID="lblEdtCatId" runat="server" Text='<%# Eval("CategoryID") %>' Width="200"></asp:Label>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("CategoryID") %>' Width="200"></asp:Label>
+                    <asp:Label ID="lblCatId" runat="server" Text='<%# Eval("CategoryID") %>' Width="200"></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Name of Category">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("CategoryName") %>' Width="200"></asp:TextBox>
+                    <asp:TextBox ID="txtEdtCatName" runat="server" Text='<%# Eval("CategoryName") %>' Width="200"></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label4" runat="server" Text='<%# Eval("CategoryName") %>' Width="200"></asp:Label>
+                    <asp:Label ID="lblCatName" runat="server" Text='<%# Eval("CategoryName") %>' Width="200"></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:CommandField HeaderText="Edit" ShowEditButton="True" />
@@ -48,7 +48,6 @@
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#000065" />
     </asp:GridView>
-    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
 </td>
 </tr>
 </table>

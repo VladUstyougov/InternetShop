@@ -40,19 +40,19 @@ namespace Mag.BusinessLayer
         {
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = DataLayer.DataAccess.AddParameter("@CategoryName", CategoryName, System.Data.SqlDbType.VarChar, 200);
-            DataTable dt = DataLayer.DataAccess.ExecuteDTByProcedure("SP_AddNewCategory", parameters);
+            DataTable dt = DataLayer.DataAccess.ExecuteDTByProcedure("AddNewCategory", parameters);
         }
         public DataTable GetCategories()
         {
             SqlParameter[] parameters = new SqlParameter[0];
-            DataTable dt = DataLayer.DataAccess.ExecuteDTByProcedure("SP_GetAllCategories", parameters);
+            DataTable dt = DataLayer.DataAccess.ExecuteDTByProcedure("GetAllCategories", parameters);
             return dt;
         }
         public DataTable GetCategory()
         {
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = DataLayer.DataAccess.AddParameter("@CategoryID", CategoryID, System.Data.SqlDbType.Int, 100);
-            DataTable dt = DataLayer.DataAccess.ExecuteDTByProcedure("SP_GetCategory", parameters);
+            DataTable dt = DataLayer.DataAccess.ExecuteDTByProcedure("GetCategory", parameters);
             return dt;
         }
         public DataTable UpdateCategory()
@@ -60,14 +60,14 @@ namespace Mag.BusinessLayer
             SqlParameter[] parameters = new SqlParameter[2];
             parameters[0] = DataLayer.DataAccess.AddParameter("@CategoryID", CategoryID, System.Data.SqlDbType.Int, 100);
             parameters[1] = DataLayer.DataAccess.AddParameter("@CategoryName", CategoryName, System.Data.SqlDbType.VarChar, 200);
-            DataTable dt = DataLayer.DataAccess.ExecuteDTByProcedure("SP_UpdateCategory", parameters);
+            DataTable dt = DataLayer.DataAccess.ExecuteDTByProcedure("UpdateCategory", parameters);
             return dt;
         }
         public DataTable DeleteCategory()
         {
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = DataLayer.DataAccess.AddParameter("@CategoryID", CategoryID, System.Data.SqlDbType.Int, 100);
-            DataTable dt = DataLayer.DataAccess.ExecuteDTByProcedure("SP_DeleteCategory", parameters);
+            DataTable dt = DataLayer.DataAccess.ExecuteDTByProcedure("DeleteCategory", parameters);
             return dt;
         }
 
@@ -81,20 +81,20 @@ namespace Mag.BusinessLayer
             parameters[2] = DataLayer.DataAccess.AddParameter("@ProductImage", ProductImage, System.Data.SqlDbType.VarChar, 500);
             parameters[3] = DataLayer.DataAccess.AddParameter("@ProductDescription", ProductDescription, System.Data.SqlDbType.VarChar, 1000);
             parameters[4] = DataLayer.DataAccess.AddParameter("@CategoryID", CategoryID, System.Data.SqlDbType.Int, 100);
-            DataTable dt = DataLayer.DataAccess.ExecuteDTByProcedure("SP_AddNewProduct", parameters);
+            DataTable dt = DataLayer.DataAccess.ExecuteDTByProcedure("AddNewProduct", parameters);
         }
         public DataTable GetAllProducts()
         {
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = DataLayer.DataAccess.AddParameter("@CategoryID", CategoryID, System.Data.SqlDbType.Int, 20);
-            DataTable dt = DataLayer.DataAccess.ExecuteDTByProcedure("SP_GetAllProducts", parameters);
+            DataTable dt = DataLayer.DataAccess.ExecuteDTByProcedure("GetAllProducts", parameters);
             return dt;
         }
         public DataTable GetProductInfo()
         {
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = DataLayer.DataAccess.AddParameter("@ProductID", ProductID, System.Data.SqlDbType.Int, 20);
-            DataTable dt = DataLayer.DataAccess.ExecuteDTByProcedure("SP_GetProductInfo", parameters);
+            DataTable dt = DataLayer.DataAccess.ExecuteDTByProcedure("GetProductInfo", parameters);
             return dt;
         }
         public DataTable UpdateProduct()

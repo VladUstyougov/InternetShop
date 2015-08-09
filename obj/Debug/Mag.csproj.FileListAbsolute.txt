@@ -3,3 +3,8 @@ c:\users\oksana\documents\visual studio 2010\Projects\Mag\Mag\bin\Mag.pdb
 c:\users\oksana\documents\visual studio 2010\Projects\Mag\Mag\obj\Debug\Mag.dll
 c:\users\oksana\documents\visual studio 2010\Projects\Mag\Mag\obj\Debug\Mag.pdb
 C:\Users\Oksana\Documents\Visual Studio 2010\Projects\mag\Mag\obj\Debug\Mag.csprojResolveAssemblyReference.cache
+E:\git\InternetShop\bin\Mag.dll
+E:\git\InternetShop\bin\Mag.pdb
+E:\git\InternetShop\obj\Debug\Mag.dll
+E:\git\InternetShop\obj\Debug\Mag.pdb
+E:\git\InternetShop\obj\Debug\Mag.csprojResolveAssemblyReference.cache
